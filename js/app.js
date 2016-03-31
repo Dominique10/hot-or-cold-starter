@@ -24,9 +24,6 @@ $(document).ready(function(){
 		var userInput = $('#userGuess').val();
 		numberCheck(userInput);
 		$('#userGuess').val('');
-		getUserInput(userInput);
-		console.log(compareValues(magicNumber,userInput));
-		hotCold(compareValues(magicNumber,userInput));
 		e.preventDefault();
 	})
 
@@ -92,7 +89,11 @@ $(document).ready(function(){
 		if (isNaN(input) || input>100) {
 			$('#feedback').text('Please Enter Valid Data. Number must be below 100');
 			alert("Please Enter Valid Data. Number must be below 100");
-			countList();
+		}
+		else{
+			getUserInput(input);
+			console.log(compareValues(magicNumber,input));
+			hotCold(compareValues(magicNumber,input));
 		}
 	};
 });
